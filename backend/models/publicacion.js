@@ -8,6 +8,7 @@ var PublicacionSchema= Schema({
     id:String,
     nombre:String,
     descripcion:String,
+    precio: Number,
     imagen:String
 })
 
