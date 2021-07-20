@@ -1,17 +1,18 @@
 <div class="row">
     <div class="col-sm-4" style="width: 400px;height: 400px;">
-        <figure class="figure" style="width: 400px;height: 400px;">
+          <figure class="figure border" style="width: 403px;height: 400px;margin-top:0px;">
             <img src="http://localhost:3900/api/get-imagen/{{publicacion.imagen}}" alt="Imagen" style="width: 400px;height: 400px;">
             <figcaption class="figure-caption text-right">Imagen del articulo</figcaption>
           </figure>
+
           <div class="d-grid gap-2" style="margin:40px 10px 10px 10px;width: 30px;height: 30px;"> 
             <button type="button" class="btn btn-danger btn-sm" style="align-content: left;" (click)="eliminar(publicacion._id)">Eliminar</button>
             <button type="button" class="btn btn-warning btn-sm" style="align-content: left;" [routerLink]="['/editararticulo/',publicacion._id]">Editar</button>
           </div>
     </div>
     <div class="col-sm-7">
-       <p class="fs-2">{{publicacion.nombre}}</p>
-       <p class="fw-light">{{publicacion.descripcion}}</p>
+       <p class="fs-2" style="margin-left: 12px;">{{publicacion.nombre}}</p>
+       <p class="fw-light" style="margin-left: 12px;">{{publicacion.descripcion}}</p>
     </div>
 
 </div>

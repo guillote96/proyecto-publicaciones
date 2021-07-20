@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router'
 import { Publicacion } from 'src/app/models/publicacion';
 import { PublicacionService } from 'src/app/services/publicacion.service';
 import {Global} from '../../services/global';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-editararticulo',
@@ -60,21 +61,21 @@ export class EditararticuloComponent implements OnInit {
 
         } else {
           this._router.navigate(['verarticulo/:id',this.publicacion._id]);
-          /*swal({
+          swal({
             title: "Error",
             text: "Ups! Se ha producido un error! =(",
             icon: "error",
-           });*/
+           });
         }
 
       },
         error => {
           console.log(error);
-         /* swal({
+         swal({
             title: "Error",
             text: "Ups! Se ha producido un error! =(",
             icon: "error",
-           });*/
+           });
 
         }
       );
@@ -86,11 +87,21 @@ export class EditararticuloComponent implements OnInit {
        if(response.status = 'success'){
          this.publicacion=response.publicacion;
          this._router.navigate(['verarticulo/',this.id]);
+         swal({
+          title: "Editar Articulo",
+          text: "Se ha editado el articulo Correctamente",
+          icon: "success",
+         });
        }
 
      },
      error=>{
        console.log(error);
+       swal({
+        title: "Error",
+        text: "Ups! Se ha producido un error! =(",
+        icon: "error",
+       });
 
      }
     );

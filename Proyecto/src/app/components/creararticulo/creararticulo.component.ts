@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import {Publicacion} from '../../models/publicacion';
 import {PublicacionService} from '../../services/publicacion.service';
 import {Global} from '../../services/global';
+import swal from 'sweetalert';
+
 
 @Component({
   selector: 'app-creararticulo',
@@ -59,12 +61,28 @@ export class CreararticuloComponent implements OnInit {
      response=>{
        if(response.status = 'success'){
          this.publicacion=response.publicacion;
+         swal({
+          title: "Guardar Articulo",
+          text: "Se ha guardado el articulo Correctamente",
+          icon: "success",
+         });
          this._router.navigate(['/articulos']);
+       }else{
+        swal({
+          title: "Error",
+          text: "Ups! Se ha producido un error! =(",
+          icon: "error",
+         });
        }
 
      },
      error=>{
        console.log(error);
+       swal({
+        title: "Error",
+        text: "Ups! Se ha producido un error! =(",
+        icon: "error",
+       });
 
      }
     );
